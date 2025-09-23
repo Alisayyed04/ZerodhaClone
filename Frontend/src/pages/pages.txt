@@ -1,0 +1,1 @@
+Full pages (LandingPage, ContactPage, Dashboard, etc.)
