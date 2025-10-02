@@ -9,7 +9,7 @@ export default function Navbar() {
 
                 <ul className="flex flex-row ml-auto space-x-14 mr-19 mt-2 font-normal">
                     <li className="text-gray-800 hover:text-blue-500 transition-colors duration-200">
-                        <Link to="/"> Signup </Link>
+                        <Link to="/signup"> Signup </Link>
                     </li> <li className="text-gray-800 hover:text-blue-500 transition-colors duration-200">
                         <Link to="/about"> About</Link>
                     </li> <li className="text-gray-800 hover:text-blue-500 transition-colors duration-200">
