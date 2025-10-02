@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+.header {
+  @apply text-gray-700  font-semibold;
+}
+
+.para {
+  @apply text-gray-600;
+}
+
+.zerodhabutton {
+  @apply block mx-auto my-7 rounded-sm bg-[#3B82F6] hover:bg-black text-white text-lg font-bold;
+}
+
+.link {
+  @apply text-blue-600 hover:text-black;
+}
