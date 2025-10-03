@@ -1,14 +1,16 @@
-import { Routes, Route } from "react-router-dom";
+
 import Landing from "./pages/Landing"
 import Signup from "./pages/Signup"
 import About from "./pages/About"
 import Products from "./pages/Products"
 import Pricing from "./pages/Pricing"
 import Support from "./pages/Support"
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
+
+
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/signup" element={<Signup />} />

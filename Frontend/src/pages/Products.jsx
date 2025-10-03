@@ -18,7 +18,7 @@ function Products() {
     return <>
         <Navbar />
 
-        <div className="flex justify-center items-center flex-col py-26 border-[1px] border-gray-300 bg-gray-50">
+        <div className="flex justify-center items-center flex-col py-26 border-[1px] border-gray-100 ">
             <h1 className="header text-3xl font-bold ">Zerodha Products</h1>
             <h3 className="para font-medium text-xl mt-4">Sleek, Modern, and Intuitive trading platforms</h3>
             <p className="para text-lg mt-5">Check out our <Link className="link" to="#"> investment offerings &#8594;</Link></p>
