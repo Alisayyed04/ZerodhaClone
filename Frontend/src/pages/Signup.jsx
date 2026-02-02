@@ -31,7 +31,7 @@ function Signup() {
             <div className="">
                 <h1 className="header text-2xl font-bold">Signup now</h1>
                 <p className="para text-lg mt-2 mb-4">Or track your existing application</p>
-                <form action={"/signup"} method="POST">
+                <form action="/otp" method="POST">
                     <label for="phoneNo" className="flex border-[0.8px] w-100 rounded-sm border-gray-400 ">
                         <div className=" flex border-r-[0.8px] p-4 justify-center items-center border-gray-200 ">
                             <img className="h-6 w-7 rounded-lg" src={indianflag}></img> <p className="header font-semibold text-xl ml-1">+91</p>
