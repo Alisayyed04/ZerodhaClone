@@ -14,6 +14,21 @@ import second from "../assets/sec.svg";
 import third from "../assets/third.svg";
 import fourth from "../assets/fourth.svg";
 import fifth from "../assets/fifth.svg";
+const API = import.meta.env.VITE_API_URL;
+
+const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const phone = e.target.phNo.value;
+
+    await fetch(`${API}/otp`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ phone }),
+    });
+};
 
 function Signup() {
     return <>
@@ -31,7 +46,7 @@ function Signup() {
             <div className="">
                 <h1 className="header text-2xl font-bold">Signup now</h1>
                 <p className="para text-lg mt-2 mb-4">Or track your existing application</p>
-                <form action="/otp" method="POST">
+                <form onSubmit={handleSubmit} method="POST">
                     <label for="phoneNo" className="flex border-[0.8px] w-100 rounded-sm border-gray-400 ">
                         <div className=" flex border-r-[0.8px] p-4 justify-center items-center border-gray-200 ">
                             <img className="h-6 w-7 rounded-lg" src={indianflag}></img> <p className="header font-semibold text-xl ml-1">+91</p>
@@ -39,7 +54,7 @@ function Signup() {
                         <input className="flex text-xl flex-1 pl-4  border-gray-200" type="tel" maxlength="10" id="phoneNo" name="phNo" placeholder="Enter your mobile number" required />
                     </label>
                     <div className=" flex justify-center items-center mr-60">
-                        <button className="  zerodhabutton px-20 py-3 ">Get OTP</button>
+                        <button className="  zerodhabutton px-20 py-3 ">Continue</button>
                     </div>
                 </form>
                 <p className="text-xs mb-4 pb-4 border-b-[0.8px] border-gray-200">By proceeding , you agree to the Zerodha <Link className="link">terms</Link> & <Link className="link">privacy policy</Link></p>

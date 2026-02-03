@@ -6,5 +6,5 @@ const PhoneSchema = new mongoose.Schema({
   },
 });
 
-const Phone = mongoose.model("Phone", PhoneSchema);
-export default Phone;
+const Phonenum = mongoose.model("Phone", PhoneSchema);
+export default Phonenum;
