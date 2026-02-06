@@ -1,35 +1,68 @@
 import mongoose from "mongoose";
-const UserSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+const UserSchema = new mongoose.Schema(
+  {
+    fullName: {
+      type: String,
+      required: true,
+      trim: true,
+      minlength: 3,
+      maxlength: 100,
+    },
 
-  aadhar: {
-    type: String,
-    required: true,
-    unique: true,
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
+      match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, // simple email validation
+    },
+
+    password: {
+      type: String,
+      required: true,
+      minlength: 6, // you can increase for security
+    },
+
+    address: {
+      type: String,
+      required: true,
+      minlength: 30,
+      maxlength: 300,
+    },
+
+    country: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
+    occupation: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
+    dob: {
+      type: Date,
+      required: true,
+    },
+
+    investmentExperience: {
+      type: String,
+      enum: ["beginner", "intermediate", "expert"],
+      required: true,
+    },
+
+    termsAccepted: {
+      type: Boolean,
+      required: true,
+    },
   },
-  pan: {
-    type: String,
-    required: true,
-    unique: true,
-    match: /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/,
+  {
+    timestamps: true, // adds createdAt and updatedAt automatically
   },
-  isVerified: {
-    type: Boolean,
-    default: false,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-});
+);
 
 const User = mongoose.model("User", UserSchema);
 export default User;

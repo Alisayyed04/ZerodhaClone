@@ -54,7 +54,7 @@ function Signup() {
                         <input className="flex text-xl flex-1 pl-4  border-gray-200" type="tel" maxlength="10" id="phoneNo" name="phNo" placeholder="Enter your mobile number" required />
                     </label>
                     <div className=" flex justify-center items-center mr-60">
-                        <button className="  zerodhabutton px-20 py-3 ">Continue</button>
+                        <Link to="/Otp"><button className="  zerodhabutton px-20 py-3 ">Continue</button> </Link>
                     </div>
                 </form>
                 <p className="text-xs mb-4 pb-4 border-b-[0.8px] border-gray-200">By proceeding , you agree to the Zerodha <Link className="link">terms</Link> & <Link className="link">privacy policy</Link></p>

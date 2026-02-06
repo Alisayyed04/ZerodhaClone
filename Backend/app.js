@@ -17,7 +17,7 @@ async function main() {
 
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
-console.log("connected to atlas ");
+// console.log("connected to atlas ");
 app.use(
   cors({
     origin: "http://localhost:5173", // frontend URL
@@ -27,6 +27,7 @@ app.use(
 app.post("/otp", async (req, res) => {
   const { phone } = req.body;
   await Phonenum.create({ phone: phone });
+
   res.json({ success: true });
 });
 
