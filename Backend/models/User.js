@@ -9,6 +9,12 @@ const UserSchema = new mongoose.Schema(
       maxlength: 100,
     },
 
+    phone: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Phone",
+      required: true,
+    },
+
     email: {
       type: String,
       required: true,
@@ -27,7 +33,7 @@ const UserSchema = new mongoose.Schema(
     address: {
       type: String,
       required: true,
-      minlength: 30,
+      minlength: 10,
       maxlength: 300,
     },
 

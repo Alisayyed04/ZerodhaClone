@@ -8,7 +8,7 @@ import mf from "../assets/mf-acop.svg";
 import steps from "../assets/steps-acop.svg";
 import stocks from "../assets/stocks-acop.svg";
 import indianflag from "../assets/2220152.webp"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import first from "../assets/first.svg";
 import second from "../assets/sec.svg";
 import third from "../assets/third.svg";
@@ -16,22 +16,31 @@ import fourth from "../assets/fourth.svg";
 import fifth from "../assets/fifth.svg";
 const API = import.meta.env.VITE_API_URL;
 
-const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const phone = e.target.phNo.value;
-
-    await fetch(`${API}/otp`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ phone }),
-    });
-};
-
 function Signup() {
+    const navigate = useNavigate();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const phone = e.target.phNo.value;
+
+        const res = await fetch(`${API}/CompleteSignup`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ phone }),
+        });
+
+        const data = await res.json(); // <-- get response from server
+        console.log("OTP RESPONSE:", data);
+
+        // Store the phoneId returned by your API
+        localStorage.setItem("phoneId", data.phoneId);
+
+        // Navigate to CompleteSignup page with phone as query param
+        navigate(`/CompleteSignup?phone=${phone}`);
+    };
+
     return <>
+
         <Navbar />
         <div className="flex flex-col items-center">
             <h1 className="header text-3xl font-bold mt-26">Open a free demat and trading account online</h1>
@@ -54,7 +63,7 @@ function Signup() {
                         <input className="flex text-xl flex-1 pl-4  border-gray-200" type="tel" maxlength="10" id="phoneNo" name="phNo" placeholder="Enter your mobile number" required />
                     </label>
                     <div className=" flex justify-center items-center mr-60">
-                        <Link to="/Otp"><button className="  zerodhabutton px-20 py-3 ">Continue</button> </Link>
+                        <button type="submit" className="zerodhabutton px-20 py-3 ">Continue</button>
                     </div>
                 </form>
                 <p className="text-xs mb-4 pb-4 border-b-[0.8px] border-gray-200">By proceeding , you agree to the Zerodha <Link className="link">terms</Link> & <Link className="link">privacy policy</Link></p>

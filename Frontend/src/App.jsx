@@ -5,7 +5,7 @@ import About from "./pages/About"
 import Products from "./pages/Products"
 import Pricing from "./pages/Pricing"
 import Support from "./pages/Support"
-import OTP from "./pages/OTP"
+import CompleteSignup from "./pages/CompleteSignup"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/support" element={<Support />} />
-        <Route path="/otp" element={<OTP />} />
+        <Route path="/CompleteSignup" element={<CompleteSignup />} />
 
       </Routes>
 
